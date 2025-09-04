@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+    /* Background image - choose your preferred image URL */
+    background-image: url('YOUR_CHOSEN_IMAGE_URL');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container styling */
+.container {
+    width: 320px;
+    background-color: rgba(253, 248, 245, 0.90); /* Light off-white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Header styling */
+h2 {
+    margin-bottom: 25px;
+    color: #266150; /* Complimentary green */
+    font-size: 1.8em;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff; /* Keeps input clean */
+}
+
+/* Primary buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #266150; /* Green */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4F4846; /* Dark highlight */
+}
+
+/* Optional contact button */
+.contact-btn {
+    background-color: #DDAF94; /* Makeup tan */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.contact-btn:hover {
+    background-color: #B8937C; /* Darker tan on hover */
+}
+
