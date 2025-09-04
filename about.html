@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Health Tips</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://img.freepik.com/free-photo/green-vegetables-background_1150-38014.jpg') no-repeat center center/cover;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: linear-gradient(135deg, #266150, #388e3c);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    nav h2 {
+      color: #fff;
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      padding: 70px 20px;
+      background: url('https://img.freepik.com/free-photo/flat-lay-arrangement-with-vegetables-copy-space_23-2148854056.jpg') no-repeat center center/cover;
+      color: #fff;
+      border-bottom: 6px solid #266150;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .container h2 {
+      color: #266150;
+      margin-bottom: 15px;
+      border-left: 5px solid #266150;
+      padding-left: 10px;
+    }
+
+    .container p {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+    }
+
+    /* Features Section */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .feature-box {
+      background: url('https://img.freepik.com/free-photo/top-view-vegetables-frame_23-2148721264.jpg') no-repeat center/cover;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0px 6px 18px rgba(0,0,0,0.3);
+    }
+
+    .feature-box h3 {
+      margin-bottom: 12px;
+      font-size: 1.3em;
+    }
+
+    /* Back Button */
+    .back-home {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #266150, #388e3c);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .back-home:hover {
+      background: linear-gradient(135deg, #4caf50, #388e3c);
+      transform: translateY(-3px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h2>Health Tips</h2>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li><a href="{{ url_for('details') }}">details</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>About Health Tips</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div>
+          {% for category, message in messages %}
+            <div style="color: {{ 'green' if category == 'success' else '#333' }}; font-weight: bold; margin-top: 8px;">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <p>Your trusted partner for a healthier tomorrow</p>
+  </header>
+
+  <!-- About Content -->
+  <div class="container">
+    <h2>Our Mission</h2>
+    <p>
+      At <strong>Health Tips</strong>, we believe good health is the foundation of happiness. 
+      Our goal is to provide easy, practical, and science-backed tips that help you build 
+      a healthier lifestyle every single day.
+    </p>
+
+    <h2>What We Offer</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>🍎 Healthy Diet Plans</h3>
+        <p>Balanced meal plans and nutrition advice for different health needs.</p>
+      </div>
+      <div class="feature-box">
+        <h3>💪 Fitness & Lifestyle</h3>
+        <p>Guidance on exercise, sleep, and stress management for everyday wellness.</p>
+      </div>
+      <div class="feature-box">
+        <h3>🩺 Disease Awareness</h3>
+        <p>Simple health tips to prevent, manage, and stay informed about common diseases.</p>
+      </div>
+    </div>
+
+    <h2>Why Choose Us?</h2>
+    <p>
+      We provide information that is <b>easy to understand</b>, <b>scientifically accurate</b>, 
+      and <b>practical for everyday life</b>. Our aim is to inspire you to live a healthier, 
+      happier, and more active life.
+    </p>
+
+    <!-- Back Button -->
+     <div>
+    <a href="{{ url_for('home') }}" class="back-home">⬅ Back to Home </a>
+    <a href="{{ url_for('details') }}" class="next">⬅ next </a>
+  </div>
+
+</body>
+</html>
