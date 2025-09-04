@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Tips - Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #e9f7ef, #f9f9f9);
+      color: #333;
+    }
+
+    /* Buttons (Back & Next) */
+    div a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #266150;   /* green shade */
+      color: #fff;                 /* white text */
+      text-decoration: none;       /* remove underline */
+      border-radius: 8px;          /* rounded corners */
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    div a:hover {
+      background-color: #4F4846;   /* darker shade on hover */
+      transform: scale(1.05);      /* slight zoom */
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #056608, #0a3c02);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)),
+        url("https://images.unsplash.com/photo-1505751172876-fa1923c5c528")
+        no-repeat center center/cover;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      border-bottom: 5px solid #056608;
+    }
+
+    /* Main Layout */
+    .container {
+      display: flex;
+      margin: 25px;
+      gap: 25px;
+    }
+
+    .content {
+      flex: 3;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 0.6s ease-in-out;
+      border-left: 6px solid #056608;
+    }
+
+    .content h2 {
+      color: #056608;
+      margin-top: 0;
+    }
+
+    .sidebar {
+      flex: 1;
+      background: linear-gradient(180deg, #eaffea, #ffffff);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+    }
+
+    .sidebar h3 {
+      color: #056608;
+      margin-top: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 14px 0;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #056608;
+      font-weight: bold;
+      background: #f0f9f0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      background: #056608;
+      color: white;
+      transform: translateX(5px);
+    }
+
+    footer {
+      background: linear-gradient(90deg, #0a3c02, #056608);
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 25px;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(15px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Health Tips - Details Page</h1>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero" id="hero-title">
+    Select a Health Issue
+  </div>
+
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Main Content -->
+    <div class="content" id="details">
+      <h2>Welcome!</h2>
+      <p>Click a health issue from the sidebar to view tips and recommended foods.</p>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h3>Health Issues</h3>
+      <ul>
+        <li><a onclick="showTips('diabetes')">Diabetes</a></li>
+        <li><a onclick="showTips('heart')">Heart Health</a></li>
+        <li><a onclick="showTips('stress')">Stress Management</a></li>
+        <li><a onclick="showTips('weight')">Weight Loss</a></li>
+        <li><a onclick="showTips('asthma')">Asthma</a></li>
+        <li><a onclick="showTips('hypertension')">Hypertension</a></li>
+        <li><a onclick="showTips('anemia')">Anemia</a></li>
+        <li><a onclick="showTips('digestive')">Digestive Health</a></li>
+        <li><a onclick="showTips('obesity')">Obesity</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Health Tips Project | All Rights Reserved
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const healthData = {
+      diabetes: {
+        title: "Managing Diabetes",
+        description: "Diabetes affects how your body processes sugar. Lifestyle changes help control it.",
+        tips: [
+          "Eat fiber-rich foods (whole grains, fruits, vegetables).",
+          "Exercise at least 30 minutes daily.",
+          "Drink at least 8 glasses of water.",
+          "Limit sugary foods and drinks.",
+          "Check blood sugar regularly."
+        ],
+        avoid: ["Sugary snacks & sodas", "Refined carbs", "Fried & fatty foods"]
+      },
+      heart: {
+        title: "Heart Health",
+        description: "A healthy heart requires good diet and regular exercise.",
+        tips: [
+          "Eat more fruits, vegetables, and omega-3 rich foods.",
+          "Exercise 5 times a week for at least 30 minutes.",
+          "Maintain healthy blood pressure & cholesterol.",
+          "Avoid smoking and excess alcohol."
+        ],
+        avoid: ["Too much salt", "Junk foods", "Sugary drinks"]
+      },
+      stress: {
+        title: "Stress Management",
+        description: "Stress affects both mind and body. Manage it with relaxation techniques.",
+        tips: [
+          "Practice yoga or meditation.",
+          "Maintain a proper sleep schedule.",
+          "Take regular breaks from work.",
+          "Talk with family or friends.",
+          "Stay physically active."
+        ],
+        avoid: ["Too much caffeine", "Overthinking", "Smoking or alcohol"]
+      },
+      weight: {
+        title: "Weight Loss",
+        description: "Healthy weight loss is about balanced eating and consistent activity.",
+        tips: [
+          "Eat small, frequent meals.",
+          "Add lean protein and veggies.",
+          "Do regular cardio exercises.",
+          "Avoid eating late at night."
+        ],
+        avoid: ["Fast food", "Sugary drinks", "Skipping meals"]
+      },
+      asthma: {
+        title: "Asthma Care",
+        description: "Asthma is a chronic condition affecting the airways.",
+        tips: [
+          "Avoid triggers like dust & smoke.",
+          "Practice breathing exercises.",
+          "Stay physically active with light exercise.",
+          "Follow prescribed medication regularly."
+        ],
+        avoid: ["Smoking", "Cold air exposure", "Strong perfumes & chemicals"]
+      },
+      hypertension: {
+        title: "Hypertension",
+        description: "Hypertension increases the risk of heart disease.",
+        tips: [
+          "Reduce salt intake.",
+          "Exercise regularly.",
+          "Eat potassium-rich foods like bananas.",
+          "Monitor blood pressure often."
+        ],
+        avoid: ["Salty foods", "Red meat", "Alcohol & tobacco"]
+      },
+      anemia: {
+        title: "Anemia Care",
+        description: "Anemia occurs due to lack of healthy red blood cells.",
+        tips: [
+          "Eat iron-rich foods (spinach, beans, red meat).",
+          "Add Vitamin C to improve iron absorption.",
+          "Get enough folate & Vitamin B12.",
+          "Stay hydrated."
+        ],
+        avoid: ["Excess tea/coffee (blocks iron absorption)", "Low-nutrient diets"]
+      },
+      digestive: {
+        title: "Digestive Health",
+        description: "Good digestion ensures overall well-being.",
+        tips: [
+          "Eat fiber-rich foods.",
+          "Drink plenty of water.",
+          "Chew food properly.",
+          "Include probiotics like yogurt."
+        ],
+        avoid: ["Overeating", "Too much spicy food", "Low water intake"]
+      },
+      obesity: {
+        title: "Obesity Management",
+        description: "Obesity increases the risk of multiple diseases.",
+        tips: [
+          "Follow a calorie-controlled diet.",
+          "Exercise at least 45 minutes daily.",
+          "Choose whole foods over processed ones.",
+          "Get proper sleep."
+        ],
+        avoid: ["Sugary snacks", "Fried fast food", "Lack of activity"]
+      }
+    };
+
+    function showTips(issue) {
+      const data = healthData[issue];
+      document.getElementById("hero-title").innerText = data.title;
+      document.getElementById("details").innerHTML =
+        `<h2>${data.title}</h2>
+         <p>${data.description}</p>
+         <h3>✅ Recommended Tips:</h3>
+         <ul>${data.tips.map(tip => `<li>${tip}</li>`).join('')}</ul>
+         <h3>🚫 Avoid:</h3>
+         <ul>${data.avoid.map(item => `<li>${item}</li>`).join('')}</ul>`;
+    }
+  </script>
+
+  <!-- Navigation -->
+  <div style="text-align:center; margin-bottom: 30px;">
+    <a href="{{ url_for('about') }}" class="Back">⬅ Back</a>
+    <a href="{{ url_for('contact') }}" class="Next">Next ➡</a>
+  </div>
+
+</body>
+</html>
